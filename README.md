@@ -22,6 +22,10 @@ PokerHands.vs("2H 3D 5S 9C KD", "2C 3H 4S 8C KH")
 #=> "Left wins!"
 ```
 
+## Notes
+
+Data validation is intentionally left out.
+
 ## License
 
 Licensed under [MIT](http://fredwu.mit-license.org/).
