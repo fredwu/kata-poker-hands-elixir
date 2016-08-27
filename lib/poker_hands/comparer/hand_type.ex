@@ -8,27 +8,23 @@ defmodule PokerHands.Comparer.HandType do
       iex>   PokerHands.Hand.Pair,
       iex>   PokerHands.Hand.HighCard
       iex> )
-      {:left, PokerHands.Hand.Pair}
+      :left
 
       iex> PokerHands.Comparer.HandType.compare(
       iex>   PokerHands.Hand.HighCard,
       iex>   PokerHands.Hand.Pair
       iex> )
-      {:right, PokerHands.Hand.Pair}
+      :right
 
       iex> PokerHands.Comparer.HandType.compare(
       iex>   PokerHands.Hand.Pair,
       iex>   PokerHands.Hand.Pair
       iex> )
-      {:tie, PokerHands.Hand.Pair}
+      :tie
   """
-  def compare(left, right) when left == right, do: {:tie, left}
+  def compare(left, right) when left == right, do: :tie
   def compare(left, right) do
-    if hand_rank(left) > hand_rank(right) do
-      {:right, right}
-    else
-      {:left, left}
-    end
+    if hand_rank(left) < hand_rank(right), do: :left, else: :right
   end
 
   defp hand_rank(hand) do
