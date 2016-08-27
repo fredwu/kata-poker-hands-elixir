@@ -10,6 +10,6 @@ defmodule PokerHands.Definitions do
               PokerHands.Hand.Pair,
               PokerHands.Hand.HighCard
             ],
-            values_ace_high: ~w(A K Q J T 9 8 7 6 5 4 3 2),
-            values_ace_low:  ~w(K Q J T 9 8 7 6 5 4 3 2 A)
+            values_ace_high: "AKQJT98765432",
+            values_ace_low:  "KQJT98765432A"
 end

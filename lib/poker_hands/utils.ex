@@ -2,6 +2,18 @@ defmodule PokerHands.Utils do
   @doc """
   ## Examples
 
+      iex> PokerHands.Utils.values(
+      iex>   PokerHands.DealtHand.init("2D 2H 7S 7D AC")
+      iex> )
+      ["A", "7", "7", "2", "2"]
+  """
+  def values(dealt_hand) do
+    dealt_hand.cards |> Enum.map(&(&1.value))
+  end
+
+  @doc """
+  ## Examples
+
       iex> PokerHands.Utils.lead_group_size?(
       iex>   PokerHands.DealtHand.init("2D 2H 7S 7D 2C"), 3
       iex> )

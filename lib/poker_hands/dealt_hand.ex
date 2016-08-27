@@ -11,10 +11,10 @@ defmodule PokerHands.DealtHand do
       iex> PokerHands.DealtHand.init("2H 4S 2S AH")
       %PokerHands.DealtHand{
         cards: [
-          %PokerHands.Card{value: "2", suit: "H", int_value: 2},
+          %PokerHands.Card{value: "A", suit: "H", int_value: 14},
           %PokerHands.Card{value: "4", suit: "S", int_value: 4},
           %PokerHands.Card{value: "2", suit: "S", int_value: 2},
-          %PokerHands.Card{value: "A", suit: "H", int_value: 14}
+          %PokerHands.Card{value: "2", suit: "H", int_value: 2}
         ],
         grouped_card_values: [["2", "2"], ["A"], ["4"]]
       }
@@ -32,6 +32,8 @@ defmodule PokerHands.DealtHand do
     denotation_string
     |> String.split(" ")
     |> Enum.map(&(Card.init(&1)))
+    |> Enum.sort_by(&(&1.int_value))
+    |> Enum.reverse()
   end
 
   defp group_card_values(cards) do
