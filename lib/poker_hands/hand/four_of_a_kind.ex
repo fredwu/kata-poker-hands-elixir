@@ -1,4 +1,6 @@
 defmodule PokerHands.Hand.FourOfAKind do
+  alias PokerHands.Utils
+
   @doc """
   ## Examples
 
@@ -13,9 +15,6 @@ defmodule PokerHands.Hand.FourOfAKind do
       false
   """
   def valid?(dealt_hand) do
-    dealt_hand.grouped_card_values
-    |> Kernel.hd()
-    |> Kernel.length()
-    |> Kernel.==(4)
+    Utils.lead_group_size?(dealt_hand, 4)
   end
 end
