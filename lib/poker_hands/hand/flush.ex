@@ -3,24 +3,12 @@ defmodule PokerHands.Hand.Flush do
   ## Examples
 
       iex> PokerHands.Hand.Flush.valid?(
-      iex>   %PokerHands.DealtHand{
-      iex>     cards: [
-      iex>       %PokerHands.Card{suit: "H"},
-      iex>       %PokerHands.Card{suit: "H"},
-      iex>       %PokerHands.Card{suit: "H"}
-      iex>     ]
-      iex>   }
+      iex>   PokerHands.DealtHand.init("2H 3H 4H")
       iex> )
       true
 
       iex> PokerHands.Hand.Flush.valid?(
-      iex>   %PokerHands.DealtHand{
-      iex>     cards: [
-      iex>       %PokerHands.Card{suit: "H"},
-      iex>       %PokerHands.Card{suit: "C"},
-      iex>       %PokerHands.Card{suit: "H"}
-      iex>     ]
-      iex>   }
+      iex>   PokerHands.DealtHand.init("2H 3C 4H")
       iex> )
       false
   """
