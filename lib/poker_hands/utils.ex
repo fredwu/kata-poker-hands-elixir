@@ -13,8 +13,29 @@ defmodule PokerHands.Utils do
       false
   """
   def lead_group_size?(dealt_hand, size) do
+    group_size(dealt_hand, size, 0)
+  end
+
+  @doc """
+  ## Examples
+
+      iex> PokerHands.Utils.second_group_size?(
+      iex>   PokerHands.DealtHand.init("2D 2H 7S 7D 2C"), 2
+      iex> )
+      true
+
+      iex> PokerHands.Utils.second_group_size?(
+      iex>   PokerHands.DealtHand.init("2D 2H 7S 7D 2C"), 3
+      iex> )
+      false
+  """
+  def second_group_size?(dealt_hand, size) do
+    group_size(dealt_hand, size, 1)
+  end
+
+  defp group_size(dealt_hand, size, group_index) do
     dealt_hand.grouped_card_values
-    |> Kernel.hd()
+    |> Enum.at(group_index)
     |> Kernel.length()
     |> Kernel.==(size)
   end
