@@ -30,6 +30,15 @@ defmodule PokerHands.Card do
     }
   end
 
-  defp int_value(x) when x in @value_mapping_keys, do: @value_mapping[x]
-  defp int_value(x),                               do: String.to_integer(x)
+  @doc """
+  ## Examples
+
+      iex> PokerHands.Card.int_value("A")
+      14
+
+      iex> PokerHands.Card.int_value("6")
+      6
+  """
+  def int_value(x) when x in @value_mapping_keys, do: @value_mapping[x]
+  def int_value(x),                               do: String.to_integer(x)
 end

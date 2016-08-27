@@ -8,7 +8,7 @@ defmodule PokerHands.Utils do
       ["A", "7", "7", "2", "2"]
   """
   def values(dealt_hand) do
-    dealt_hand.cards |> Enum.map(&(&1.value))
+    Enum.map(dealt_hand.cards, &(&1.value))
   end
 
   @doc """

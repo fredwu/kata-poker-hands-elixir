@@ -1,4 +1,6 @@
 defmodule PokerHands.Hand.Flush do
+  alias PokerHands.Hand.HighCard
+
   @doc """
   ## Examples
 
@@ -19,4 +21,19 @@ defmodule PokerHands.Hand.Flush do
     |> Kernel.length()
     |> Kernel.==(1)
   end
+
+  @doc """
+  ## Examples
+
+      iex> PokerHands.Hand.Flush.high_card_values(
+      iex>   PokerHands.DealtHand.init("2H 3H 4H")
+      iex> )
+      [4, 3, 2]
+
+      iex> PokerHands.Hand.Flush.high_card_values(
+      iex>   PokerHands.DealtHand.init("2H 3H AH")
+      iex> )
+      [14, 3, 2]
+  """
+  defdelegate high_card_values(dealt_hand), to: HighCard
 end
