@@ -26,6 +26,6 @@ defmodule PokerHands.DealtHand do
   defp init_cards(denotation_string) do
     denotation_string
     |> String.split(" ")
-    |> Enum.map(fn(denotation) -> Card.init(denotation) end)
+    |> Enum.map(&(Card.init(&1)))
   end
 end
