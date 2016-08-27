@@ -1,4 +1,6 @@
 defmodule PokerHands.Hand.FullHouse do
+  alias PokerHands.Utils
+
   @doc """
   ## Examples
 
@@ -13,9 +15,7 @@ defmodule PokerHands.Hand.FullHouse do
       false
   """
   def valid?(dealt_hand) do
-    [three_of_a_kind | remaining] = dealt_hand.grouped_card_values
-    [pair | _remaining]           = remaining
-
-    Kernel.length(three_of_a_kind) == 3 && Kernel.length(pair) == 2
+    Utils.lead_group_size?(dealt_hand, 3) &&
+      Utils.second_group_size?(dealt_hand, 2)
   end
 end
