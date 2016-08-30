@@ -28,6 +28,6 @@ defmodule PokerHands.Comparer.HandType do
   end
 
   defp hand_rank(hand) do
-    Enum.find_index(@hands, fn(h) -> h == hand end)
+    Enum.find_index(@hands, &(&1 == hand))
   end
 end
